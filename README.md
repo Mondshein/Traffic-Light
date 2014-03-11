@@ -64,6 +64,26 @@ digitalWrite(latchPin, LOW);
 shiftOut(dataPin, clockPin, LSBFIRST, number);
 digitalWrite(latchPin, HIGH);
 }
+void updateShiftRegister2(number)
+
+{
+digitalWrite(latchPin, LOW);
+shiftOut(dataPin, clockPin, LSBFIRST, number);
+digitalWrite(latchPin, HIGH);
+}
+
+void updateShiftRegister13(number2)
+{
+digitalWrite(latchPin, LOW);
+shiftOut(dataPin, clockPin, LSBFIRST, number);
+digitalWrite(latchPin, HIGH);
+}
+void updateShiftRegister14(number2)
+{
+digitalWrite(latchPin, LOW);
+shiftOut(dataPin, clockPin, LSBFIRST, number);
+digitalWrite(latchPin, HIGH);
+}
 
 void loop()
 {
@@ -75,29 +95,36 @@ void loop()
     if (btnval == HIGH){
       pedwait[x] = true; // We have someone waiting to cross      
       updateShiftRegister(00000000);
-      updateShiftRegister(00000000);
+      updateShiftRegister1(00000000);
+      updateShiftRegister2(00000000);
+      updateShiftRegister3(00000000);
+      updateShiftRegister4(00000000);
     }
   }
-  if(int t = 0; t < 13; i++){
+ for(int i = 0; i < 15); i++){
   
-  if(t < 5){
-  updateShiftRegister();
-  updateShiftRegister1();
-  }
-  if(t <= 5 && t <10 ){
-  updateShiftRegister();
-  updateShiftRegister1();
-  }
-  if(t <= 10 && t < 13){
-    updateShiftRegister();
-  updateShiftRegister1();
-  }
-  
-  }
-  
-  
+   if(i < 5){
+      updateShiftRegister(00000000);
+      updateShiftRegister1(00000000);
+      updateShiftRegister2(00000000);
+      updateShiftRegister3(00000000);
+      updateShiftRegister4(00000000);
+   }
+   if(i > 5 && i > 10){
+      updateShiftRegister(00000000);
+      updateShiftRegister1(00000000);
+      updateShiftRegister2(00000000);
+      updateShiftRegister3(00000000);
+      updateShiftRegister4(00000000); 
+   }
+  if(i > 10 ){
+      updateShiftRegister(00000000);
+      updateShiftRegister1(00000000);
+      updateShiftRegister2(00000000);
+      updateShiftRegister3(00000000);
+      updateShiftRegister4(00000000);
+   }
+ 
+   }
+ 
 }
-  
-
-
-
