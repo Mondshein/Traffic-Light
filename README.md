@@ -1,7 +1,9 @@
-
-#define DATA 6
+#define DATA 9
 #define LATCH 8
 #define CLOCK 10
+#define DATA2 6
+#define LATCH2 4
+#define CLOCK2 5
 // Lights {GREEN, YELLOW, RED, PEDGREEN, PEDRED}
 
 int light [2][5] = {{2,3,4,6,7},{8,9,10,12,13}};
@@ -72,18 +74,6 @@ shiftOut(dataPin, clockPin, LSBFIRST, number);
 digitalWrite(latchPin, HIGH);
 }
 
-void updateShiftRegister13(number2)
-{
-digitalWrite(latchPin, LOW);
-shiftOut(dataPin, clockPin, LSBFIRST, number);
-digitalWrite(latchPin, HIGH);
-}
-void updateShiftRegister14(number2)
-{
-digitalWrite(latchPin, LOW);
-shiftOut(dataPin, clockPin, LSBFIRST, number);
-digitalWrite(latchPin, HIGH);
-}
 
 void loop()
 {
@@ -94,37 +84,33 @@ void loop()
     btnval = digitalRead(btn[x]);
     if (btnval == HIGH){
       pedwait[x] = true; // We have someone waiting to cross      
-      updateShiftRegister(00000000);
+      updateShiftRegister(00100000);
       updateShiftRegister1(00000000);
-      updateShiftRegister2(00000000);
-      updateShiftRegister3(00000000);
-      updateShiftRegister4(00000000);
+     
     }
   }
- for(int i = 0; i < 15); i++){
+ for(int i = 0; i < 15; i++){
   
    if(i < 5){
-      updateShiftRegister(00000000);
+      updateShiftRegister(00100000);
       updateShiftRegister1(00000000);
-      updateShiftRegister2(00000000);
-      updateShiftRegister3(00000000);
-      updateShiftRegister4(00000000);
+    
    }
    if(i > 5 && i > 10){
-      updateShiftRegister(00000000);
-      updateShiftRegister1(00000000);
-      updateShiftRegister2(00000000);
-      updateShiftRegister3(00000000);
-      updateShiftRegister4(00000000); 
+      updateShiftRegister(00001000);
+      updateShiftRegister1(1000000);
+    
    }
   if(i > 10 ){
-      updateShiftRegister(00000000);
-      updateShiftRegister1(00000000);
-      updateShiftRegister2(00000000);
-      updateShiftRegister3(00000000);
-      updateShiftRegister4(00000000);
+      updateShiftRegister(00001000);
+      updateShiftRegister1(00100000);
+      if(i == 11){
+      updateShiftRegister(100
+      
+      }
+  
    }
- 
+  
    }
  
 }
