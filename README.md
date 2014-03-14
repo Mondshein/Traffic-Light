@@ -13,6 +13,9 @@ void setup() {
   pinMode(LATCH,OUTPUT);
   pinMode(CLOCK,OUTPUT);
   pinMode(DATA, OUTPUT);
+  pinMode(LATCH2,OUTPUT);
+  pinMode(CLOCK2,OUTPUT);
+  pinMode(DATA2, OUTPUT);
 }
 
 void updateShiftRegister(int number)
@@ -24,9 +27,9 @@ digitalWrite(LATCH, HIGH);
 
 void updateShiftRegister2(int number)
 {
-digitalWrite(LATCH, LOW);
-shiftOut(DATA,CLOCK, LSBFIRST, number);
-digitalWrite(LATCH, HIGH);
+digitalWrite(LATCH2, LOW);
+shiftOut(DATA2,CLOCK2, LSBFIRST, number);
+digitalWrite(LATCH2, HIGH);
 }
 
 
@@ -44,20 +47,26 @@ void loop()
      
    // }
  // }
+ 
+  //start
+  int part1 = 100010000;
+  int part2 = 101000000;
+  //second part
+  int part3 = 100001000;
+  int part4 = 101000000;
+//for(int i = 0; i < 15; i++){
   
- for(int i = 0; i < 15; i++){
-  
-   if(i < 5){
-      updateShiftRegister(00000000);
-      updateShiftRegister2(11111111);
+   //if(i < 5){
+     // updateShiftRegister(part1);
+    //  updateShiftRegister2(part2);
       
     
-   }
-  // if(i > 5 && i > 10){
-  //    updateShiftRegister(00000000);
-  //    updateShiftRegister2(0000000);
-  //  
-  // }
+   //}
+ // if(i > 5 && i > 10){
+     updateShiftRegister(part3);
+     updateShiftRegister2(part4);
+    
+ //}
  // if(i > 10 ){
  //     updateShiftRegister(00000000);
  //     updateShiftRegister2(00000000);
@@ -68,6 +77,6 @@ void loop()
   
    //}
   
-   }
+ // }
  
 }
