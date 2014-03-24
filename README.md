@@ -52,31 +52,40 @@ void loop()
   int part1 = 100010000;
   int part2 = 101000000;
   //second part
-  int part3 = 100001000;
+  int part3 = 101101001;
   int part4 = 101000000;
-//for(int i = 0; i < 15; i++){
+  //third part
+  int part5 = 111100100;
+  int part6 = 101000000;
+for(int i = 0; i < 15; i++){
   
-   //if(i < 5){
-     // updateShiftRegister(part1);
-    //  updateShiftRegister2(part2);
+ //  if(i < 5){
+  //   updateShiftRegister(part1);
+   //   updateShiftRegister2(part2);
       
     
-   //}
- // if(i > 5 && i > 10){
-     updateShiftRegister(part3);
-     updateShiftRegister2(part4);
+  //}
+  //if(i > 5 && i > 10){
+  //  updateShiftRegister(part3);
+  // updateShiftRegister2(part4);
     
  //}
  // if(i > 10 ){
- //     updateShiftRegister(00000000);
- //     updateShiftRegister2(00000000);
- //    if(i == 11){
- //     updateShiftRegister(00000000);
-      
+  //   updateShiftRegister(part5);
+  //  updateShiftRegister2(part6);
+ // }
+     //if(i == 11){
+  // updateShiftRegister(part5);
+  // updateShiftRegister2(part1);
    //   }
-  
+   //if(i == 11){
+   updateShiftRegister(part5);
+   updateShiftRegister2(part3);
+   //   }
    //}
   
  // }
+  }
+  }
  
-}
+
