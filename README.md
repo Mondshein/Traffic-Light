@@ -57,6 +57,15 @@ void loop()
   //third part
   int part5 = 111100100;
   int part6 = 101000000;
+  //fourth part
+   int part7 = 111010100;
+   int part8 = 101000000;
+   //fifth part
+   int part9 = 111101100;
+   int part10 = 101000000;
+     //sixth part
+   int part11 = 111100100;
+   int part12 = 101000000;
 for(int i = 0; i < 15; i++){
   
  //  if(i < 5){
@@ -75,13 +84,30 @@ for(int i = 0; i < 15; i++){
   //  updateShiftRegister2(part6);
  // }
      //if(i == 11){
-  // updateShiftRegister(part5);
+   //updateShiftRegister(part5);
   // updateShiftRegister2(part1);
    //   }
    //if(i == 11){
-   updateShiftRegister(part5);
-   updateShiftRegister2(part3);
+  // updateShiftRegister(part5);
+  // updateShiftRegister2(part5);
    //   }
+     //if(i == 11){
+    //updateShiftRegister(part7);
+    //updateShiftRegister2(part8);
+   //   }
+   //if(i == 11){
+   //updateShiftRegister(part9);
+   // updateShiftRegister2(part10);
+   //   }
+    //if(i == 11){
+    // updateShiftRegister(part11);
+    //updateShiftRegister2(part12);
+   //   }
+   //if(i == 11){
+     updateShiftRegister(part11);
+    updateShiftRegister2(part7);
+   //   }
+   
    //}
   
  // }
