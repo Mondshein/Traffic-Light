@@ -56,7 +56,7 @@ void loop()
   int part4 = 101000000;
   //third part
   int part5 = 111100100;
-  int part6 = 101000000;
+  int part6 = 100i010000;
   //fourth part
    int part7 = 111010100;
    int part8 = 101000000;
@@ -66,52 +66,57 @@ void loop()
      //sixth part
    int part11 = 111100100;
    int part12 = 101000000;
-for(int i = 0; i < 15; i++){
+for(int i = 0; i < 8; i++){
   
- //  if(i < 5){
-  //   updateShiftRegister(part1);
-   //   updateShiftRegister2(part2);
-      
+   if(i == 0 ){
+    updateShiftRegister(part1);
+      updateShiftRegister2(part2);
+      delay(1000);
     
-  //}
-  //if(i > 5 && i > 10){
-  //  updateShiftRegister(part3);
-  // updateShiftRegister2(part4);
-    
- //}
- // if(i > 10 ){
-  //   updateShiftRegister(part5);
-  //  updateShiftRegister2(part6);
- // }
-     //if(i == 11){
+  }
+  if(i == 1){
+  updateShiftRegister(part3);
+  updateShiftRegister2(part4);
+    delay(1000);
+ }
+  if(i == 2){
+     updateShiftRegister(part5);
+    updateShiftRegister2(part6);
+    delay(1000);
+ }
+    if(i == 3){
+   updateShiftRegister(part5);
+   updateShiftRegister2(part3);
+   delay(1000);
+      }
+   if(i == 4){
    //updateShiftRegister(part5);
-  // updateShiftRegister2(part1);
-   //   }
-   //if(i == 11){
-  // updateShiftRegister(part5);
-  // updateShiftRegister2(part5);
-   //   }
-     //if(i == 11){
-    //updateShiftRegister(part7);
-    //updateShiftRegister2(part8);
-   //   }
-   //if(i == 11){
-   //updateShiftRegister(part9);
-   // updateShiftRegister2(part10);
-   //   }
-    //if(i == 11){
-    // updateShiftRegister(part11);
-    //updateShiftRegister2(part12);
-   //   }
-   //if(i == 11){
+   updateShiftRegister2(part6);
+   delay(5000);
+      }
+     if(i == 5){
+    updateShiftRegister(part7);
+   updateShiftRegister2(part8);
+   delay(5000);
+     }
+   if(i == 6){
+  updateShiftRegister(part9);
+    updateShiftRegister2(part10);
+    delay(5000);
+      }
+    if(i == 7){
      updateShiftRegister(part11);
-    updateShiftRegister2(part7);
-   //   }
+    updateShiftRegister2(part12);
+    delay(5000);
+     }
+   if(i == 8){
+     updateShiftRegister(part11);
+   updateShiftRegister2(part7);
+   delay(5000);
+      }
    
-   //}
+   }
+}
   
- // }
-  }
-  }
  
 
