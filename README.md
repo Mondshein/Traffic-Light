@@ -122,5 +122,15 @@ for(int i = 4; i < 6; i++){
 }
 }
   
+  
+*/  void setup() {Serial.begin(9600); }
+
+void loop() 
+{
+  int num = analogRead(0);
+  Serial.println(num);
+  delay(500);
+}
+*/
  
 
