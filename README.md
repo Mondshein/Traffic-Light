@@ -53,69 +53,73 @@ void loop()
   int part2 = 101000000;
   //second part
   int part3 = 101101001;
-  int part4 = 101000000;
+  int part4 = 0;
   //third part
   int part5 = 111100100;
-  int part6 = 100i010000;
+  int part6 = 111110100;
   //fourth part
-   int part7 = 111010100;
+   int part7 = 111101100;
    int part8 = 101000000;
    //fifth part
-   int part9 = 111101100;
-   int part10 = 101000000;
-     //sixth part
-   int part11 = 111100100;
-   int part12 = 101000000;
-for(int i = 0; i < 8; i++){
+   int part9 = 100001000;
+   
+for(int i = 4; i < 6; i++){
   
-   if(i == 0 ){
+  /* if(i == 0 ){
     updateShiftRegister(part1);
-      updateShiftRegister2(part2);
-      delay(1000);
+    updateShiftRegister2(part2);
+    delay(1000);
     
   }
   if(i == 1){
   updateShiftRegister(part3);
-  updateShiftRegister2(part4);
+  updateShiftRegister2(part2);
     delay(1000);
  }
   if(i == 2){
      updateShiftRegister(part5);
-    updateShiftRegister2(part6);
+    updateShiftRegister2(part2);
     delay(1000);
  }
     if(i == 3){
    updateShiftRegister(part5);
-   updateShiftRegister2(part3);
+   updateShiftRegister2(part1);
    delay(1000);
       }
+      */
    if(i == 4){
-   //updateShiftRegister(part5);
-   updateShiftRegister2(part6);
-   delay(5000);
+   updateShiftRegister(part5);
+   updateShiftRegister2(part9);
+   delay(1000);
       }
      if(i == 5){
-    updateShiftRegister(part7);
-   updateShiftRegister2(part8);
-   delay(5000);
-     }
-   if(i == 6){
-  updateShiftRegister(part9);
-    updateShiftRegister2(part10);
-    delay(5000);
-      }
-    if(i == 7){
-     updateShiftRegister(part11);
-    updateShiftRegister2(part12);
-    delay(5000);
-     }
-   if(i == 8){
-     updateShiftRegister(part11);
-   updateShiftRegister2(part7);
-   delay(5000);
-      }
-   
+   updateShiftRegister(part5);
+   updateShiftRegister2(part5);
+   delay(1000);
    }
+   /*
+   if(i == 6){
+   updateShiftRegister(part6);
+   updateShiftRegister2(part5);
+   delay(1000);
+}
+ if(i == 7){
+   updateShiftRegister(part7);
+   updateShiftRegister2(part5);
+   delay(1000);
+}
+  if(i == 8){
+   updateShiftRegister(part5);
+   updateShiftRegister2(part6);
+   delay(1000);
+}
+ if(i == 9){
+   updateShiftRegister(part5);
+   updateShiftRegister2(part6);
+   delay(1000);
+}
+*/
+}
 }
   
  
