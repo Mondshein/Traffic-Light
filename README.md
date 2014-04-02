@@ -43,8 +43,8 @@ void loop()
 
  
   //start
-  int part1 = 500050000;
-  int part2 = 105000000;
+  int part1 = 100010000;
+  int part2 = 101000000;
   //second part
   int part3 = 101101001;
   int part4 = 0;
@@ -53,15 +53,18 @@ void loop()
   int part6 = 111110100;
   //fourth part
    int part7 = 111101100;
-   int part8 = 105000000;
+   int part8 = 101000000;
    //fifth part
-   int part9 = 500005000;
-      
+   int part9 = 100001000;
+   
+  updateShiftRegister(part2);
+  updateShiftRegister2(part2);   
   int num = analogRead(0);
   Serial.println(num);
-  delay(500);
-  
-for(int i = 0; i < 10; i++){
+  /*
+  if(num > 500){
+    delay(1000);
+      for(int i = 0; i < 10; i++) {
   
    if(i == 0 ){
     updateShiftRegister(part1);
@@ -78,15 +81,8 @@ for(int i = 0; i < 10; i++){
      updateShiftRegister(part5);
     updateShiftRegister2(part2);
     delay(5000);
-   int num = analogRead(0);
-  Serial.println(num);
-  delay(500);
-    if(num > 500){
-  updateShiftRegister(part2);
-  updateShiftRegister2(part2);
-  delay(5000);
     }
- }
+ 
     if(i == 3){
    updateShiftRegister(part5);
    updateShiftRegister2(part1);
@@ -102,15 +98,9 @@ for(int i = 0; i < 10; i++){
    updateShiftRegister(part5);
    updateShiftRegister2(part5);
    delay(5000);
-   int num = analogRead(0);
-   Serial.println(num);
-   delay(500);
-    if(num > 500){
-     updateShiftRegister(part2);
-     updateShiftRegister2(part2);
-     delay(5000);
+  
     }
-   }
+   
    
    if(i == 6){
    updateShiftRegister(part6);
@@ -121,15 +111,9 @@ for(int i = 0; i < 10; i++){
    updateShiftRegister(part7);
    updateShiftRegister2(part5);
    delay(5000);
-    int num = analogRead(0);
-  Serial.println(num);
-  delay(500);
-    if(num > 500){
-  updateShiftRegister(part2);
-  updateShiftRegister2(part2);
-  delay(5000);
+ 
     }
-}
+
   if(i == 8){
    updateShiftRegister(part5);
    updateShiftRegister2(part6);
@@ -139,17 +123,16 @@ for(int i = 0; i < 10; i++){
    updateShiftRegister(part5);
    updateShiftRegister2(part6);
    delay(5000);
-    int num = analogRead(0);
-  Serial.println(num);
-  delay(500);
-    if(num > 500){
-  updateShiftRegister(part2);
-  updateShiftRegister2(part2);
-  delay(5000);
     }
-}
 
 }
+  }
+else{
+    updateShiftRegister(part2);
+  updateShiftRegister2(part2);
+}
+
+*/
 }
   
   
