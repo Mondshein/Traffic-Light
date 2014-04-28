@@ -20,8 +20,12 @@ void setup(){
     irrecv.enableIRIn();
     pinMode(red,OUTPUT);
     pinMode(blue,OUTPUT);
-
- 
+    pinMode(LATCH,OUTPUT);
+    pinMode(CLOCK,OUTPUT);
+    pinMode(DATA, OUTPUT);
+    pinMode(LATCH2,OUTPUT);
+    pinMode(CLOCK2,OUTPUT);
+    pinMode(DATA2, OUTPUT);
     Serial.begin(9600);
 
 
@@ -52,13 +56,11 @@ digitalWrite(LATCH2, HIGH);
 
 void loop(){
   count = 1;
-  updateShiftRegister(00000000);
-  updateShiftRegister2(00000000);
-  digitalWrite(red,LOW);
-  digitalWrite(blue,HIGH); 
-  delay(5000);
-
-  /*
+updateShiftRegister(p);
+updateShiftRegister2(p);
+digitalWrite(red, LOW);
+digitalWrite(blue, LOW);
+  
   for(int i = 0; i < 10; i++){
   if(irrecv.decode(&results)){ 
     switch(results.value){
@@ -179,7 +181,7 @@ count++;
 
   }
   }
-  */
+  
 
 }
 
