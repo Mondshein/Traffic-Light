@@ -1,277 +1,185 @@
 
-
-#define DATA 9
-
+#include <IRremote.h>
+int recieverpin = 0;
+#define DATA 6
 #define LATCH 8
-
 #define CLOCK 10
-
-#define DATA2 6
-
-#define LATCH2 4
-
+#define DATA2 9
+#define LATCH2 7
 #define CLOCK2 5
+#define red 13
+#define blue 12
 
-// SETUP
+int count;
 
-void setup() {
+IRrecv irrecv(recieverpin);
 
+decode_results results;
 
-  pinMode(LATCH,OUTPUT);
+void setup(){
+    irrecv.enableIRIn();
+    pinMode(red,OUTPUT);
+    pinMode(blue,OUTPUT);
 
-  pinMode(CLOCK,OUTPUT);
+ 
+    Serial.begin(9600);
 
-  pinMode(DATA, OUTPUT);
-
-  pinMode(LATCH2,OUTPUT);
-
-  pinMode(CLOCK2,OUTPUT);
-
-  pinMode(DATA2, OUTPUT);
-
-  Serial.begin(9600);
 
 }
+int p = 0;
+int a = pow(2,0);
+int b = pow(2,1);
+int c = pow(2,2);
+int d = pow(2,3);
+int e = pow(2,4);
+int f = pow(2,5);
+int g = pow(2,6);
+int h = pow(2,7);
+int j = pow(2,8);
 
 void updateShiftRegister(int number)
-
 {
-
 digitalWrite(LATCH, LOW);
-
 shiftOut(DATA,CLOCK, LSBFIRST, number);
-
 digitalWrite(LATCH, HIGH);
-
 }
-
 void updateShiftRegister2(int number)
-
 {
-
 digitalWrite(LATCH2, LOW);
-
 shiftOut(DATA2,CLOCK2, LSBFIRST, number);
-
 digitalWrite(LATCH2, HIGH);
+} 
 
-}
+void loop(){
+  count = 1;
+  updateShiftRegister(00000000);
+  updateShiftRegister2(00000000);
+  digitalWrite(red,LOW);
+  digitalWrite(blue,HIGH); 
+  delay(5000);
 
- 
-
-void loop()
-
-{
-
-    
-
-
-
-
-//start
-
-  int part1 = 111010000;
-
-  int part2 = 101000000;
-
-  //second part
-
-  int part3 = 101101001;
-
-  int part4 = 100100100;
-
-  //third part
-
-  int part5 = 111100100;
-
-  int part6 = 110110000;
-
-  //fourth part
-
-   int part7 = 101001000;
-
-   int part8 = 101000100;
-
-   //fifth part
-
-   int part9 = 101001000;
-
- int part10 = 101110100;
-
-  int part11 = 101000100;
-
-  int part12 = 101100100;
-  int part13 = 100010001;
-  int part14 = 100100001;
-  int part15 = 110110100;
-  int part16 = 101000100;
-  int part17 = 111100100;
-
-  updateShiftRegister(part5);
-
-  updateShiftRegister2(part2);
- int num = analogRead(0);
-
-  Serial.println(num);
-
-  delay(1000);
-
- 
-
- if(num > 500){
-
-    delay(1000);
-
-      for(int i = 0; i < 12; i++) {
-
- 
-
- if(i == 0 ){
-
-    updateShiftRegister(part1);
-
-    updateShiftRegister2(part2);
-
-    delay(5000);
-
-    
-
-}
-
-  if(i == 1){
-
-  updateShiftRegister(part3);
-
-  updateShiftRegister2(part2);
-
-    delay(5000);
-
- }
-
-  if(i == 2){
-
-     updateShiftRegister(part5);
-
-    updateShiftRegister2(part2);
-
-    delay(5000);
-
-    }
-
- 
-
-    if(i == 3){
-
-   updateShiftRegister(part11);
-
-   updateShiftRegister2(part13);
-
-   delay(5000);
-
+  /*
+  for(int i = 0; i < 10; i++){
+  if(irrecv.decode(&results)){ 
+    switch(results.value){
+      /////////////////////////////////1 BUTTON//////////////
+      case 0x010:
+      if(count%2 == 1){
+      p = p + a;
+      updateShiftRegister(p);
       }
-
-   if(i == 4){
-
-   updateShiftRegister(part11);
-
-   updateShiftRegister2(part14);
-
-   delay(5000);
-
-      }
-
-     if(i == 5){
-
-   updateShiftRegister(part11);
-
-   updateShiftRegister2(part2);
-
-   delay(5000);
-
- 
-
+    if(count%2 == 0){
+      p = p + a;
+   updateShiftRegister2(p);
     }
-
- 
-
-
-
-  if(i == 6){
-
-   updateShiftRegister(part6);
-
-   updateShiftRegister2(part5);
-
-   delay(5000);
-
-}
-
- if(i == 7){
-
-   updateShiftRegister(part7);
-
-   updateShiftRegister2(part5);
-
-   delay(5000);
-
- 
-
-    }
-
-  if(i == 8){
-
-   updateShiftRegister(part8);
-
-   updateShiftRegister2(part5);
-
-   delay(5000);
-
+count++;
+      break;
+      
      
-
-}
-
- if(i == 9){
-
-   updateShiftRegister(part11);
-
-   updateShiftRegister2(part15);
-
-   delay(5000);
-
+    ////////////////////2 BUTTON/////////////////////
+      case 0x810:
+          if(count%2 == 1){
+            p = p + b;
+    updateShiftRegister(p);
+          }
+    if(count%2 == 0){
+      p = p + b;
+     updateShiftRegister2(p);
     }
-     if(i == 10){
+count++;
+      break;
 
-   updateShiftRegister(part11);
-
-   updateShiftRegister2(part16);
-
-   delay(5000);
-
+    ///////////////////////////////////////3 BUTTON/////////////////////
+      case 0x410:
+          if(count%2 == 1){
+            p = p + c;
+     updateShiftRegister(p); 
+     }
+    if(count%2 == 0){
+       p = p + c;
+    updateShiftRegister2(p);
     }
-     if(i == 11){
+count++;
+     break; 
 
-   updateShiftRegister(part11);
-
-   updateShiftRegister2(part17);
-
-   delay(5000);
-
+    ///////////////////////////////////////4 BUTTON/////////////////////
+      case 0xC10:
+          if(count%2 == 1){
+             p = p + d;
+     updateShiftRegister(d);
+          }
+    if(count%2 == 0){
+       p = p + d;
+     updateShiftRegister2(d);
     }
-
-}
+count++;
+     break;
+     ///////////////////////////////////////5 BUTTON/////////////////////
+      case 0x210:
+          if(count%2 == 1){
+             p = p + e;
+     digitalWrite(red,HIGH);
+          }
+    if(count%2 == 0){
+       p = p + e;
+     digitalWrite(blue,HIGH);
+    }
+count++;
+    
+     break;
+     ///////////////////////////////////////6 BUTTON/////////////////////
+      case 0xA10:
+          if(count%2 == 1){
+             p = p + f + e;
+    updateShiftRegister(p);
+          }
+    if(count%2 == 0){
+       p = p + f;
+     updateShiftRegister2(p);
+    }
+count++;
+     break;
+    ///////////////////////////////////////7 BUTTON/////////////////////
+      case 0x610:
+          if(count%2 == 1){
+             p = p + g;
+     updateShiftRegister(p);
+          }
+    if(count%2 == 0){
+       p = p + g;
+     updateShiftRegister2(p);
+    }
+count++;
+     break;
+     ///////////////////////////////////////8 BUTTON/////////////////////
+      case 0xE10:
+          if(count%2 == 1){
+             p = p + h;
+   updateShiftRegister(p);
+          }
+    if(count%2 == 0){
+       p = p + h;
+    updateShiftRegister2(p);
+    }
+count++;
+     break;
+     ///////////////////////////////////////9 BUTTON/////////////////////
+      case 0x110:      
+          if(count%2 == 1){
+             p = p + j;
+     updateShiftRegister(p);
+          }
+    if(count%2 == 0){
+       p = p + j;
+     updateShiftRegister2(p);
+    }
+count++;
+     break;
+    }
 
   }
-
-else{
-
-    updateShiftRegister(part2);
-
-  updateShiftRegister2(part2);
+  }
+  */
 
 }
-
-
-}
-
-
 
